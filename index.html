@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoView WebAR</title>
+
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="js/popup.js" defer></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+    <!-- START SCREEN -->
+    <div id="start-screen" class="start-screen">
+      <h1>GeoView WebAR</h1>
+      <p>Pelajari bangun ruang 3D dengan teknologi Augmented Reality.</p>
+
+      <button id="start-btn" class="btn-start">Mulai AR</button>
+      <button id="start-exit-btn" class="btn-exit">Keluar Aplikasi</button>
+    </div>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup hidden">
+      <div id="popup-content"></div>
+      <button id="close-btn" onclick="closePopup()">Tutup</button>
+    </div>
+
+    <!-- EXIT BUTTON (selama kamera ON) -->
+    <button id="exit-btn-overlay" class="exit-btn">Keluar</button>
+
+    <!-- AR CAMERA SCENE -->
+    <a-scene
+      id="ar-scene"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      loading-screen="enabled:false"
+      style="display: none"
+    >
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+      <a-entity
+        light="type: directional; intensity: 0.6"
+        position="1 1 1"
+      ></a-entity>
+
+      <!-- bulan -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-bulan.patt"
+        id="marker-bulan"
+      >
+        <a-entity gltf-model="models/bulan.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <!-- bumi -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-4. bumi.patt"
+        id="marker-bumi"
+      >
+        <a-entity gltf-model="models/bumi.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <!-- jupiter -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-6. Jupiter.patt"
+        id="marker-jupiter"
+      >
+        <a-entity
+          gltf-model="models/jupiter.glb"
+          scale="0.3 0.3 0.3"
+        ></a-entity>
+      </a-marker>
+
+      <!-- mars -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-5. mars.patt"
+        id="marker-mars"
+      >
+        <a-entity gltf-model="models/mars.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <!-- matahari -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-matahari.patt"
+        id="marker-matahari"
+      >
+        <a-entity
+          gltf-model="models/matahari.glb"
+          scale="0.3 0.3 0.3"
+        ></a-entity>
+      </a-marker>
+
+      <!-- merkurius -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-merkurius.patt"
+        id="marker-merkurius"
+      >
+        <a-entity
+          gltf-model="models/merkurius.glb"
+          scale="0.35 0.35 0.35"
+        ></a-entity>
+      </a-marker>
+
+      <!-- neptunus -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-neptunus.patt"
+        id="marker-neptunus"
+      >
+        <a-entity
+          gltf-model="models/neptunus.glb"
+          scale="0.3 0.3 0.3"
+        ></a-entity>
+      </a-marker>
+
+      <!-- pluto -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-pluto.patt"
+        id="marker-pluto"
+      >
+        <a-entity gltf-model="models/pluto.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <!-- saturnus -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-7. Saturnus.patt"
+        id="marker-saturnus"
+      >
+        <a-entity
+          gltf-model="models/saturnus.glb"
+          scale="0.3 0.3 0.3"
+        ></a-entity>
+      </a-marker>
+
+      <!-- tatasurya -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-tatasurya.patt"
+        id="marker-tatasurya"
+      >
+        <a-entity
+          gltf-model="models/tatasurya.glb"
+          scale="0.3 0.3 0.3"
+        ></a-entity>
+      </a-marker>
+
+      <!-- uranus -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-8. Uranus.patt"
+        id="marker-uranus"
+      >
+        <a-entity gltf-model="models/uranus.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <!-- venus -->
+      <a-marker
+        type="pattern"
+        url="markers/pattern-3. VENUS.patt"
+        id="marker-VENUS"
+      >
+        <a-entity gltf-model="models/venus.glb" scale="0.3 0.3 0.3"></a-entity>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
